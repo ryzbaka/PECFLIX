@@ -1,0 +1,16 @@
+{% extends "blog/base.html" %}
+{% block content %}
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    {% for movie in movies %}
+         <h1>{{movie.title}}</h1>
+         <p>{{movie.creator}}</p>
+        <iframe width="560" height="315" src="{{movie.content}}" frameborder="0" allow="" allowfullscreen></iframe>
+         
+    {% endfor %}
+{% endblock content %}
