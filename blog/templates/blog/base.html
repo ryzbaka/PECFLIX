@@ -22,7 +22,7 @@
         <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
             <div class="container">
             <!--<a class="navbar-brand mr-4" href="{% url 'blog-home' %}">Pecflix(under construction, wear a hat)</a>-->
-            <a href="{% url 'blog-home' %}"><img src="https://fontmeme.com/permalink/190323/1bf49eadc8087f85059add18dfd790b7.png" alt="netflix-font" border="0"></a> 
+            <a href="{% url 'blog-home' %}"><img src="https://fontmeme.com/permalink/190323/1bf49eadc8087f85059add18dfd790b7.png" alt="Pecflix-Logo" border="0"></a> 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
@@ -30,7 +30,9 @@
                 <div class="navbar-nav mr-auto">
                 <a class="nav-item nav-link" href="{% url 'blog-home' %}">Home</a><!-- This is for the different webpages -->
                 <a class="nav-item nav-link" href="{% url 'blog-about'%}">About</a>
-                <a class="nav-item nav-link" href="{% url 'pecflix-movies'%}">Movies</a>
+                {% if user.is_authenticated %}
+                    <a class="nav-item nav-link" href="{% url 'pecflix-movies'%}">Movies</a>
+                {% endif %}
                 <!--
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
@@ -38,13 +40,17 @@
                         <a class="dropdown-item" href="#">Top Rated</a>
                         <a class="dropdown-item" href="#">Pecflix Originals</a>
                     </div>
-                </li>
-                -->
+                </li>-->
                 </div>
                 <!-- Navbar Right Side -->
                 <div class="navbar-nav">
-                <a class="nav-item nav-link" href="#">Login</a>
-                <a class="nav-item nav-link" href="#">Register</a>
+                    {% if user.is_authenticated %}
+                        <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
+                        <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
+                    {% else %}
+                        <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+                        <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
+                    {% endif %}
                 </div>
             </div>
             </div>
@@ -53,6 +59,13 @@
     <main role="main" class="container">
         <div class="row">
             <div class="col-md-8">
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
                 {% block content %}{% endblock %}
             </div>
             <div class="col-md-4">
@@ -65,7 +78,8 @@
                 <p></p>
                 <p></p>
                 <p></p>
-                <div class="content-section">
+                {% if user.is_authenticated %}
+                    <div class="content-section">
                     <h3>Similar Movies</h3>
                     <h5>(under construction,wear a hat.)</h5>
                     <p class='text-muted'>Adding Movie Recommendation functionality.
@@ -78,6 +92,8 @@
                         </ul>
                     </p>
                 </div>
+                {% endif %}
+                
             </div>
         </div>
     </main>

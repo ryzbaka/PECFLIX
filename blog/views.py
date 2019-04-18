@@ -16,4 +16,6 @@ def movies(request):
 	Movies={
 		'movies':Movie.objects.all()
 	}
-	return render(request,'blog/movies.html',Movies)
+	return render(request,'blog/movies.html',Movies,{'title':'About'})
+
+
