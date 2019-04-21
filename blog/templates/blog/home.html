@@ -6,12 +6,20 @@
     <p></p>
     <p></p>
     <p></p>
-    <h1>Development Blog</h1>
+    <h1>Developer Blog</h1>
     <p></p>
     {% for post in posts %}
-         <h3>{{post.title}}</h3>
-         <p>By:{{post.author}} on {{post.date_posted|date:"F d, Y"}}<p>
-         <p>{{post.content}}</p>
+        <article class="media content-section">
+            <img class="rounded-circle article-img"src="{{ post.author.profile.image.url }}">
+            <div class="media-body">
+                <div class="article-metadata">
+                    <a class="mr-2" href='#'>{{ post.author }}</a>
+                    <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}
+                </div>
+                <h2><a class="article-title" href='#'>{{ post.title }}</a></h2>
+                <p class="article-content">{{ post.content }}</p>
+            </div>
+        </article>
     {% endfor %}
 {% endblock content %}
 

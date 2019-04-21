@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Post,Movie
+
 #from django.http import HttpResponse
 def home(request):
 	context={
@@ -17,5 +18,3 @@ def movies(request):
 		'movies':Movie.objects.all()
 	}
 	return render(request,'blog/movies.html',Movies,{'title':'About'})
-
-

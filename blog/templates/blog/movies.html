@@ -10,7 +10,7 @@
     {% for movie in movies %}
         <div>    
             <h3>{{movie.title}}</h3>
-            <!--<p>{{movie.creator}}</p>-->
+            <p>Uploaded by: {{movie.creator}}</p>
             <iframe width="560" height="315" src="{{movie.content}}" frameborder="0" allow="" allowfullscreen></iframe>
         </div>
          
