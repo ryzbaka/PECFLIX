@@ -1,0 +1,14 @@
+{% extends "blog/base.html" %}
+{% block content %}
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <h3>You haven't reviewed any movies yet.</h3>
+    <p>We don't know know you well enough to recommend movies to you</p>
+    <a class="nav-item nav-link" href="{% url 'pecflix-movies'%}">Watch movies here</a>
+    <a class="nav-item nav-link" href="{% url 'review'%}">Or go review movies here</a>
+{% endblock content %}

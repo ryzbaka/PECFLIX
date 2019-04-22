@@ -1,0 +1,25 @@
+{% extends "blog/base.html" %}
+{% block content %}
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <h1>Watched Movies:</h1>
+        {% for movie in watched_movies %}
+            <div>    
+                <p>{{ movie }}</p>
+            </div>
+         
+        {% endfor %}
+    <h1>Recommended Movies:</h1>
+    {% for movie in movie_recommendations %}
+        <div>    
+            <iframe width="560" height="315" src="{{ movie }}" frameborder="0" allow="" allowfullscreen></iframe>
+        </div>
+         
+    {% endfor %}
+
+{% endblock content %}
