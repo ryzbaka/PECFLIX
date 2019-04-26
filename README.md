@@ -33,11 +33,11 @@ The terminal will display a link, which when clicked will automatically direct y
 
 #### Note: Do not close the terminal after the runserver command as it will cause the development server to shut down, making the website inaccessible.
 
-#Licensing
+# Licensing
 
-MIT License
+## MIT License
 
-Copyright (c) 2019 Hamza Ali
+## Copyright (c) 2019 Hamza Ali
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
