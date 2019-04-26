@@ -29,6 +29,6 @@ cd PECFLIX
 python3 manage.py runserver
 ```
 This will start the development server and will allow the website to be accessed through a web browser.
-THe terminal will display a link, which when clicked will automatically direct you to the PECFLIX website
+The terminal will display a link, which when clicked will automatically direct you to the PECFLIX website
 
 #### Note: Do not close the terminal after the runserver command as it will cause the development server to shut down, making the website inaccessible.
